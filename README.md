@@ -19,7 +19,7 @@ Alternative Language Project that sifts through a csv file using an alternative 
 
 ### What year had the most phones launched in any year later than 1999? 
 
-### Checklist
+# Checklist
 
 * [x] Uses alternative language (Java, C#, etc)
 * [ ] Read CSV file
