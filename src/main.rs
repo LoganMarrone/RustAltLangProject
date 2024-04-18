@@ -1,4 +1,8 @@
+extern crate csv;
 use std::fs::File;
+use std::error::Error;
+use std::path::Path;
+
 
 fn main (){
     //create a class called cell (in rust we have to enumerate to establish variables within a class, initialize the struct and implement the features)
@@ -33,13 +37,15 @@ fn main (){
             self.value = new;
         }
     }
-    //establish mutabile var file for the file that checks if the file is Ok and if there runs an arror
-    let mut file = match File::open("./cells.csv"){
+    //establish mutabile var file for the file that checks if the file is Ok and if there runs an arror (Wrong thought)
+    //Instead of using a mutable var, use a fixed file that has a path since we do not need a mutable variable
+    let pathtofile = Path::new("./cells.csv");
+    let file = match File::open(&pathtofile){
         Ok(file) => file,
         Err(ohnoerror) => {
             println!("There was an error reading the file: {}", ohnoerror);
             return;
         }
     };
-    
+
 }
