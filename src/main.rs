@@ -1,7 +1,7 @@
-extern crate csv;
 use std::fs::File;
-use std::error::Error;
 use std::path::Path;
+use std::io::BufRead;
+use std::io::BufReader;
 
 
 fn main (){
@@ -40,12 +40,20 @@ fn main (){
     //establish mutabile var file for the file that checks if the file is Ok and if there runs an arror (Wrong thought)
     //Instead of using a mutable var, use a fixed file that has a path since we do not need a mutable variable
     let pathtofile = Path::new("./cells.csv");
-    let file = match File::open(&pathtofile){
+    //This acts like a file check to ensure that the csv file can be read
+    let _file = match File::open(&pathtofile){
         Ok(file) => file,
         Err(ohnoerror) => {
             println!("There was an error reading the file: {}", ohnoerror);
             return;
         }
+        
     };
-
+    //this right here is the actual file reader that assigns it a value/reference in the program
+    let readfile = BufReader::new(_file);
+    for line in readfile.lines(){
+        if let Ok(line) = line {
+            //println!("{}", line)
+        }
+    }
 }
