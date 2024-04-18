@@ -3,13 +3,13 @@ Alternative Language Project that sifts through a csv file using an alternative 
 
 # Questions
 ### Which programming language and version did you pick?
-
+I chose the Language Rust and the version I picked is 1.77.2
 ### Why did you pick this programming language?
-
+I have always wondered about Rust and, given this opportunity, I decided to push myself to learn a completely new language rather than try and seek a language I have already dabbled in.
 ### How your programming language chosen handles: object-oriented programming, file ingestion, conditional statements, assignment statements, loops, subprograms (functions/methods), unit testing and exception handling. If one or more of these are not supported by your programming language, indicate it as so. 
 
 ### List out 3 libraries you used from your programming language (if applicable) and explain what they are, why you chose them and what you used them for.
-
+Due to the fact that Rust is an alternative to C++ it utilizes the STD library as well which allows for easy usage in regards to opening files.
 # Answer the following questions (and provide a corresponding screen showing output answering them):
 ### What company (oem) has the highest average weight of the phone body?
 
@@ -22,14 +22,13 @@ Alternative Language Project that sifts through a csv file using an alternative 
 # Checklist
 
 * [x] Uses alternative language (Java, C#, etc)
-* [ ] Read CSV file
-* [ ] Cell Class
-* [ ] Assign columns with class attributes
-* [ ] Getter/Setter Methods
-* [ ] Data structure native to Language
-* [ ] Replace missing/"-" values with null
+* [X] Read CSV file
+* [X] Cell Class
+* [X] Assign columns with class attributes
+* [X] Getter/Setter Methods
+* [X] Data structure native to Language
+* [X] Replace missing/"-" values with null
 * [ ] Transform data according to instructions
-* [ ] Convert data types
+* [X] Convert data types
 * [ ] Create at least 7+ methods/functions. Include below
 * [ ]
-* [ ] Error Control/Handling
