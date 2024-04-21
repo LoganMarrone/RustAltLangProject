@@ -2,7 +2,7 @@ use std::fs::File;
 use std::path::Path;
 use std::io::BufRead;
 use std::io::BufReader;
-
+#[allow(non_snake_case)]
 
 fn main (){
     //create a class called cell (in rust we have to enumerate to establish variables within a class, initialize the struct and implement the features)
@@ -96,7 +96,8 @@ fn main (){
             Cellvar::Platformos(_) => self.Platformos = Some(StrFloat::Strval(value)),
         }
         }
-    }
+}
+    
     //establish mutabile var file for the file that checks if the file is Ok and if there runs an arror (Wrong thought)
     //Update:Instead of using a mutable var, use a fixed file that has a path since we do not need a mutable variable
     let pathtofile = Path::new("./cells.csv");
@@ -112,85 +113,48 @@ fn main (){
     //this right here is the actual file reader that assigns it a value/reference in the program
     let readfile = BufReader::new(_file);
     //uses a for loop that sifts through the lines and checks if it is a line.
-    for line in readfile.lines(){
-        if let Ok(line) = line {
-            //Split them by comma using a string vector that collects the values and assigns them to parts
-            let parts: Vec<&str> = line.split(',').collect();
-            //create a new cell to 
-            let mut cell = Cell::new();
-            //Assign attributes properly and check if it is there
-            if let Some(Oem) = parts.get(0){
-                cell.Oem = Some(StrFloat::Strval(Oem.to_string()));
-            }
-            else{
-                cell.Oem = None;
-            }
-            if let Some(Model) = parts.get(1){
-                cell.Model = Some(StrFloat::Strval(Model.to_string()));
-            }
-            else{
-                cell.Model = None;
-            }
-            if let Some(Launchannounced) = parts.get(2){
-                cell.Launchannounced = Some(StrFloat::Strval(Launchannounced.to_string()));
-            }
-            else{
-                cell.Launchannounced = None;
-            }
-            if let Some(Launchstatus) = parts.get(3){
-                cell.Launchstatus = Some(StrFloat::Strval(Launchstatus.to_string()));
-            }
-            else{
-                cell.Launchstatus = None;
-            }
-            if let Some(Bodydimensions) = parts.get(4){
-                cell.Bodydimensions = Some(StrFloat::Strval(Bodydimensions.to_string()));
-            }
-            else{
-                cell.Bodydimensions = None;
-            }
-            if let Some(Bodyweight) = parts.get(5){
-                cell.Bodyweight = Some(StrFloat::Strval(Bodyweight.to_string()));
-            }
-            else{
-                cell.Bodyweight = None;
-            }
-            if let Some(Bodysim) = parts.get(6){
-                cell.Bodysim = Some(StrFloat::Strval(Bodysim.to_string()));
-            }
-            else{
-                cell.Bodysim = None;
-            }
-            if let Some(Displaytype) = parts.get(7){
-                cell.Displaytype = Some(StrFloat::Strval(Displaytype.to_string()));
-            }
-            else{
-                cell.Displaytype = None;
-            }
-            if let Some(Displaysize) = parts.get(8){
-                cell.Displaysize = Some(StrFloat::Strval(Displaysize.to_string()));
-            }
-            else{
-                cell.Displaysize = None;
-            }
-            if let Some(Displayresolution) = parts.get(9){
-                cell.Displayresolution = Some(StrFloat::Strval(Displayresolution.to_string()));
-            }
-            else{
-                cell.Displayresolution = None;
-            }
-            if let Some(Featuressensors) = parts.get(10){
-                cell.Featuressensors = Some(StrFloat::Strval(Featuressensors.to_string()));
-            }
-            else{
-                cell.Featuressensors = None;
-            }
-            if let Some(Platformos) = parts.get(11){
-                cell.Platformos = Some(StrFloat::Strval(Platformos.to_string()));
-            }
-            else{
-                cell.Platformos = None;
+    for line in readfile.lines() {
+    if let Ok(line) = line {
+        let parts: Vec<&str> = line.split(',').collect();
+        let mut cell = Cell::new();
+
+        // Iterate over each part and assign the value if it exists
+        for (index, part) in parts.iter().enumerate() {
+            let value = if part.is_empty() {
+                None // Assign None for empty slots
+            } else {
+                Some(StrFloat::Strval(part.to_string())) // Assign the value if it exists
+            };
+
+            // Match the index to the corresponding field in the Cell struct
+            //I realize now that there is a far more easy and productive solution to doing such. This allows a far more simple way to sift through and assign values
+            if parts.len() == 12 {
+            match index {
+                    0 => cell.Oem = value,
+                    1 => cell.Model = value,
+                    2 => cell.Launchannounced = value,
+                    3 => cell.Launchstatus = value,
+                    4 => cell.Bodydimensions = value,
+                    5 => cell.Bodyweight = value,
+                    6 => cell.Bodysim = value,
+                    7 => cell.Displaytype = value,
+                    8 => cell.Displaysize = value,
+                    9 => cell.Displayresolution = value,
+                    10 => cell.Featuressensors = value,
+                    11 => cell.Platformos = value,
+                _ => {}
             }
         }
+        else {
+        }
+        //Checks for output
+        /*if let Some(Oem) = &cell.Oem {
+        match Oem {
+        StrFloat::Strval(s) => println!("Oem: {}", s),
+        _ => {}
+        }
+        }*/
     }
+}
+}
 }
