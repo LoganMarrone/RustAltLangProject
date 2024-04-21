@@ -3,7 +3,7 @@ Alternative Language Project that sifts through a csv file using an alternative 
 
 # Questions
 ### Which programming language and version did you pick?
-I chose the Language Rust and the version I picked is 1.77.2
+I chose the Language Rust and the version I picked is 1.77.2. What I believe to be the latest/most stable version.
 ### Why did you pick this programming language?
 I have always wondered about Rust and, given this opportunity, I decided to push myself to learn a completely new language rather than try and seek a language I have already dabbled in.
 ### How your programming language chosen handles: object-oriented programming, file ingestion, conditional statements, assignment statements, loops, subprograms (functions/methods), unit testing and exception handling. If one or more of these are not supported by your programming language, indicate it as so. 
