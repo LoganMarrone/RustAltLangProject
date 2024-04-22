@@ -8,9 +8,9 @@ fn main (){
     //create a class called cell (in rust we have to enumerate to establish variables within a class, initialize the struct and implement the features)
     //Update: enum can be used to establish multiple variable types within one structure's variable like a string. So we can additionally make a variable using a enum to convert the values easily
     //For this program we have multiple values to convert from String to Float. For simplicities sake I made all of their types StrFloat so that they can be both Strings and Integers
+    
     enum StrFloat {
         Strval(String),
-        Intval(i64),
         Fltval(f64),
     }
     enum Cellvar {
@@ -148,13 +148,14 @@ fn main (){
         else {
         }
         //Checks for output
-        /*if let Some(Oem) = &cell.Oem {
-        match Oem {
-        StrFloat::Strval(s) => println!("Oem: {}", s),
+        /*if let Some(Bodysim) = &cell.Bodysim {
+        match Bodysim {
+        StrFloat::Strval(s) => println!("Bodysim: {}", s),
         _ => {}
         }
-        }*/
-    }
+        }
+        */
+}
 }
 }
 }
